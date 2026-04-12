@@ -4,6 +4,28 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { personalInfo } from "@/data/portfolio";
 
+export default function Hero() {
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  useEffect(() => {
+    const checkTheme = () => {
+      const htmlElement = document.documentElement;
+      setIsDarkMode(htmlElement.classList.contains("dark"));
+    };
+    
+    // Check initial theme
+    checkTheme();
+    
+    // Listen for theme changes
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"]
+    });
+    
+    return () => observer.disconnect();
+  }, []);
+
 const roles = [
   "Frontend Developer",
   "AI Systems Developer",
@@ -45,24 +67,25 @@ function TypewriterText({ texts }) {
   }, [displayed, phase, index, texts]);
 
   return (
-    <span className="text-cyan-400 font-display">
+    <span className="text-cyan-400 dark:text-cyan-400 light:text-cyan-600 font-display">
       {displayed}
       <span className="animate-pulse">|</span>
     </span>
   );
 }
 
-export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6"
+      className={`relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6 ${
+        isDarkMode ? "" : "bg-gradient-to-b from-blue-50 to-white"
+      }`}
     >
       {/* Background elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Grid pattern */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.08]"
           style={{
             backgroundImage:
               "linear-gradient(rgba(34,211,238,1) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,1) 1px, transparent 1px)",
@@ -75,7 +98,7 @@ export default function Hero() {
 
         {/* Decorative lines */}
         <svg
-          className="absolute top-20 right-10 opacity-10 w-32 h-32"
+          className="absolute top-20 right-10 opacity-20 w-32 h-32"
           viewBox="0 0 100 100"
           fill="none"
         >
@@ -87,7 +110,7 @@ export default function Hero() {
         </svg>
 
         <svg
-          className="absolute bottom-20 left-10 opacity-10 w-24 h-24"
+          className="absolute bottom-20 left-10 opacity-20 w-24 h-24"
           viewBox="0 0 100 100"
           fill="none"
         >

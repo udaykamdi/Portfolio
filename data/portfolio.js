@@ -23,11 +23,6 @@ export const skills = [
     icon: "◎",
     items: ["Computer Vision", "OpenCV", "TensorFlow Basics", "Image Processing", "Data Analysis"],
   },
-  {
-    category: "DevOps & Tools",
-    icon: "◇",
-    items: ["Linux", "Git", "Docker Basics", "WordPress", "Magento"],
-  },
 ];
 
 export const projects = [
@@ -61,7 +56,7 @@ export const education = [
     title: "Integrated Master of Computer Application - Artificial Intelligence",
     institution: "Parul University, Vadodara, Gujarat",
     year: "2022 – 2026",
-    cgpa: "8.42 / 10",
+    cgpa: "8.58 / 10",
     description: "Focused on algorithms, software engineering, and AI fundamentals.",
   },
   {

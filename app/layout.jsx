@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body className="bg-[#080B0F] text-white font-body antialiased">{children}</body>
+      <body className="bg-[var(--bg)] text-white dark:text-white light:text-gray-900 font-body antialiased">{children}</body>
     </html>
   );
 }

@@ -35,7 +35,7 @@ export default function Education() {
             <h3 className="font-mono text-xs tracking-widest text-white/30 uppercase mb-6">Degree</h3>
             {education.map((edu, i) => (
               <FadeIn key={edu.title} delay={i * 0.1}>
-                <div className={`glass rounded-2xl p-6 border border-white/5 hover:border-cyan-400/20 transition-all duration-300 group ${i === 0 ? "mb-6" : ""}`}>
+                <div className={`glass rounded-2xl p-6 border border-white/5 hover:border-cyan-400/20 transition-all duration-300 group ${i === 0 ? "mb-6" : ""} bg-white/10 backdrop-blur-lg border border-white/10`}>
                   <div className="flex items-start justify-between gap-4 mb-3">
                     <div>
                       <h4 className="font-display font-semibold text-white text-base group-hover:text-cyan-400 transition-colors">
@@ -71,7 +71,7 @@ export default function Education() {
                     key={issuer}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="glass rounded-2xl p-6 border border-white/5 hover:border-cyan-400/20 transition-all duration-300 group"
+                    className="glass rounded-2xl p-6 border border-white/5 hover:border-cyan-400/20 transition-all duration-300 group bg-white/10 backdrop-blur-lg border border-white/10"
                   >
                     <div 
                       className="flex items-center justify-between cursor-pointer"
