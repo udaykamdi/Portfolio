@@ -5,9 +5,7 @@ import { personalInfo } from "@/data/portfolio";
 
 const stats = [
   { value: "2+", label: "Years Building" },
-  { value: "10+", label: "Projects Shipped" },
-  { value: "98.5%", label: "Detection Accuracy" },
-  { value: "70%", label: "Faster Inspection" },
+  { value: "5+", label: "Projects Shipped" },
 ];
 
 export default function About() {
@@ -38,7 +36,7 @@ export default function About() {
           <div className="grid grid-cols-2 gap-4">
             {stats.map((stat, i) => (
               <FadeIn key={stat.label} delay={i * 0.1}>
-                <div className="glass rounded-2xl p-6 group hover:border-cyan-400/30 transition-all duration-300 hover:-translate-y-1">
+                <div className="glass rounded-2xl p-6 group hover:border-cyan-400/30 transition-all duration-300 hover:-translate-y-1 bg-white/10 backdrop-blur-lg border border-white/10">
                   <div className="font-display font-extrabold text-3xl sm:text-4xl text-gradient-cyan mb-1">
                     {stat.value}
                   </div>

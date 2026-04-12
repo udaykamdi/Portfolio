@@ -3,18 +3,25 @@
 import { motion } from "framer-motion";
 import { FadeIn, SectionLabel, StaggerContainer, staggerItem } from "@/components/ui/Motion";
 import { projects } from "@/data/portfolio";
+import { useState, useEffect } from "react";
 
-function ProjectCard({ project, index }) {
+function ProjectCard({ project, index, isDarkMode }) {
   const isFeatured = project.featured;
 
   return (
     <motion.div
       variants={staggerItem}
-      className={`group relative rounded-2xl border border-white/5 overflow-hidden hover:border-white/10 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${
+      className={`group relative rounded-2xl border overflow-hidden hover:-translate-y-2 hover:shadow-2xl ${
         isFeatured ? "lg:col-span-1" : ""
+      } ${
+        isDarkMode 
+          ? "border-white/5 hover:border-white/10" 
+          : "border-gray-200 hover:border-gray-300"
       }`}
       style={{
-        background: "linear-gradient(135deg, #0E1318 0%, #080B0F 100%)",
+        background: isDarkMode 
+          ? "linear-gradient(135deg, #0E1318 0%, #080B0F 100%)" 
+          : "linear-gradient(135deg, #FFFFFF 0%, #FFFFFF 100%)",
       }}
     >
       {/* Gradient accent overlay */}
@@ -23,7 +30,9 @@ function ProjectCard({ project, index }) {
       />
 
       {/* Image placeholder / mock preview */}
-      <div className="relative h-48 overflow-hidden bg-[#0A0D12] border-b border-white/5">
+      <div className={`relative h-48 overflow-hidden border-b ${
+        isDarkMode ? "bg-[#0A0D12] border-white/5" : "bg-blue-50 border-blue-200 bg-[linear-gradient(45deg,#ffffff_1px,transparent_1px),linear-gradient(-45deg,#ffffff_1px,transparent_1px)] bg-[length:20px_20px]"
+      }`}>
         <div className="absolute inset-0 flex items-center justify-center">
           {/* Abstract project illustration */}
           <svg
@@ -93,10 +102,14 @@ function ProjectCard({ project, index }) {
 
       {/* Content */}
       <div className="relative p-6">
-        <h3 className="font-display font-bold text-lg text-white mb-2 group-hover:text-white transition-colors">
+        <h3 className={`font-display font-bold text-lg mb-2 group-hover:transition-colors ${
+          isDarkMode ? "text-white group-hover:text-white" : "text-gray-900 group-hover:text-gray-800"
+        }`}>
           {project.title}
         </h3>
-        <p className="font-body text-white/40 text-sm leading-relaxed mb-4 line-clamp-3">
+        <p className={`font-body text-sm leading-relaxed mb-4 line-clamp-3 ${
+          isDarkMode ? "text-white/40" : "text-gray-800"
+        }`}>
           {project.description}
         </p>
 
@@ -105,7 +118,9 @@ function ProjectCard({ project, index }) {
           {project.tech.map((t) => (
             <span
               key={t}
-              className="font-mono text-xs px-2.5 py-1 rounded-full bg-white/5 text-white/40"
+              className={`font-mono text-xs px-2.5 py-1 rounded-full ${
+                isDarkMode ? "bg-white/5 text-white/40" : "bg-blue-100 text-blue-800"
+              }`}
             >
               {t}
             </span>
@@ -131,15 +146,37 @@ function ProjectCard({ project, index }) {
 }
 
 export default function Projects() {
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const featured = projects.filter((p) => p.featured);
   const rest = projects.filter((p) => !p.featured);
+
+  useEffect(() => {
+    const checkTheme = () => {
+      const htmlElement = document.documentElement;
+      setIsDarkMode(htmlElement.classList.contains("dark"));
+    };
+    
+    // Check initial theme
+    checkTheme();
+    
+    // Listen for theme changes
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"]
+    });
+    
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section id="projects" className="py-32 px-6">
       <div className="max-w-6xl mx-auto">
         <FadeIn className="mb-16">
           <SectionLabel label="04 — Projects" />
-          <h2 className="font-display font-bold text-4xl sm:text-5xl text-white leading-tight">
+          <h2 className={`font-display font-bold text-4xl sm:text-5xl leading-tight ${
+            isDarkMode ? "text-white" : "text-gray-900"
+          }`}>
             Things I've built
           </h2>
         </FadeIn>
@@ -147,7 +184,7 @@ export default function Projects() {
         {/* Featured projects */}
         <StaggerContainer className="grid md:grid-cols-2 gap-5 mb-5" staggerDelay={0.12}>
           {featured.map((p, i) => (
-            <ProjectCard key={p.title} project={p} index={i} />
+            <ProjectCard key={p.title} project={p} index={i} isDarkMode={isDarkMode} />
           ))}
         </StaggerContainer>
 
@@ -155,7 +192,7 @@ export default function Projects() {
         {rest.length > 0 && (
           <StaggerContainer className="grid md:grid-cols-3 gap-5" staggerDelay={0.1}>
             {rest.map((p, i) => (
-              <ProjectCard key={p.title} project={p} index={i + featured.length} />
+              <ProjectCard key={p.title} project={p} index={i + featured.length} isDarkMode={isDarkMode} />
             ))}
           </StaggerContainer>
         )}

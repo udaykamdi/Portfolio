@@ -92,7 +92,7 @@ export default function Contact() {
                   href={link.href}
                   target={link.label !== "Email" ? "_blank" : undefined}
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 glass rounded-xl p-4 border border-white/5 hover:border-cyan-400/25 group transition-all duration-300 hover:-translate-y-0.5"
+                  className="flex items-center gap-4 glass rounded-xl p-4 border border-white/5 hover:border-cyan-400/25 group transition-all duration-300 hover:-translate-y-0.5 bg-white/10 backdrop-blur-lg border border-white/10"
                 >
                   <span className="w-8 h-8 flex items-center justify-center rounded-lg bg-cyan-400/10 text-cyan-400 group-hover:bg-cyan-400/20 transition-colors">
                     {link.icon}
@@ -124,7 +124,7 @@ export default function Contact() {
                 <p className="font-body text-white/40 text-sm">I'll get back to you within 24 hours.</p>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="glass rounded-2xl p-6 border border-white/5 space-y-4">
+              <form onSubmit={handleSubmit} className="glass rounded-2xl p-6 border border-white/5 space-y-4 bg-white/10 backdrop-blur-lg border border-white/10">
                 {[
                   { id: "name", label: "Name", type: "text", placeholder: "Your name" },
                   { id: "email", label: "Email", type: "email", placeholder: "your@email.com" },
