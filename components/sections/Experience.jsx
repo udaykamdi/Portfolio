@@ -37,6 +37,16 @@ export default function Experience() {
       description: "Worked on real-world projects involving desktop applications and AI-based systems and collaborated with team to build scalable and responsive applications",
       tags: ["ElectronForge.js", "Node.js", "React.js", "TensorFlow.js", "Tailwind CSS"],
       featured: true,
+    },
+    {
+      id: 2,
+      title: "Software Engineer - Application Support & Development",
+      company: "Cosmic Infotech",
+      period: "June 2026 - Present",
+      location: "Pune, Maharashtra, India",
+      description: "Development and maintenance of software applications  using .NET and web technologies. Database management and query optimization using SQL Server / MySQL.",
+      tags: [".NET", "SQL", "Web Technologies", "Application Support", "Database Management"],
+      featured: true,
     }
     
   ];
