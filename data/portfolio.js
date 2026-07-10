@@ -9,19 +9,34 @@ export const personalInfo = {
 
 export const skills = [
   {
-    category: "Frontend",
+    category: "LANGUAGEs",
     icon: "⬡",
-    items: ["React", "Next.js", "Tailwind CSS", "HTML/CSS", "JavaScript"],
+    items: ["JavaScript", "HTML", "Python", "SQL"],
   },
   {
-    category: "Backend",
+    category: "FRONT-END",
     icon: "◈",
-    items: ["Node.js", "Express.js", "MongoDB", "REST APIs", "Python"],
+    items: ["React.js", "Next.js", "Tailwind CSS", "Electron Forge", "Vite"],
+  },
+  {
+    category: "BACK-END",
+    icon: "◎",
+    items: ["Node.js", "Express.js", "REST APIs", ".NET"],
+  },
+  {
+    category: "DATABSEs",
+    icon: "◎",
+    items: ["MongoDB", "MySQL", "Microsoft SQL Server"],
   },
   {
     category: "AI / ML",
-    icon: "◎",
-    items: ["Computer Vision", "OpenCV", "TensorFlow Basics", "Image Processing", "Data Analysis"],
+    icon: "⬡",
+    items: ["Computer Vision", "TensorFlow", "Image Processing", "Machine Learning Fundamentals"],
+  },
+  {
+    category: "TOOLs",
+    icon: "◈",
+    items: ["GitHub", "Postman", "Visual Studio Code"],
   },
 ];
 

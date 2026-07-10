@@ -30,22 +30,22 @@ export default function Experience() {
   const experiences = [
     {
       id: 1,
-      title: "Frontend Developer Internship",
-      company: "Nsemble Technologies Pvt Ltd",
-      period: "Dec 2025 - March 2026",
-      location: "Remote",
-      description: "Worked on real-world projects involving desktop applications and AI-based systems and collaborated with team to build scalable and responsive applications",
-      tags: ["ElectronForge.js", "Node.js", "React.js", "TensorFlow.js", "Tailwind CSS"],
-      featured: true,
-    },
-    {
-      id: 2,
       title: "Software Engineer - Application Support & Development",
       company: "Cosmic Infotech",
       period: "June 2026 - Present",
       location: "Pune, Maharashtra, India",
-      description: "Development and maintenance of software applications  using .NET and web technologies. Database management and query optimization using SQL Server / MySQL.",
+      description: "Develop and maintain web applications using .NET, SQL Server/MySQL, and related technologies. Troubleshoot application issues, provide L1/L2 support, and optimize system performance. Collaborate with clients and internal teams to deliver technical solutions and documentation.",
       tags: [".NET", "SQL", "Web Technologies", "Application Support", "Database Management"],
+      featured: true,
+    },
+    {
+      id: 2,
+      title: "Frontend Developer Internship",
+      company: "Nsemble Technologies Pvt Ltd",
+      period: "Dec 2025 - March 2026",
+      location: "Remote",
+      description: " Developed an AI-powered inspection application using React.js, Electron Forge, and Node.js. Integrated Computer Vision and Machine Learning models for automated defect detection. Built and tested scalable full-stack features while collaborating on industrial AI solutions. ",
+      tags: ["ElectronForge.js", "Node.js", "React.js", "TensorFlow.js", "Tailwind CSS"],
       featured: true,
     }
     

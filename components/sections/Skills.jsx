@@ -10,14 +10,6 @@ const categoryColors = {
     dark: { text: "text-cyan-400", bg: "bg-cyan-400/5", border: "border-cyan-400/20", glow: "hover:shadow-cyan-400/10" },
     light: { text: "text-cyan-600", bg: "bg-cyan-50", border: "border-cyan-200", glow: "hover:shadow-cyan-100" }
   },
-  Backend: { 
-    dark: { text: "text-emerald-400", bg: "bg-emerald-400/5", border: "border-emerald-400/20", glow: "hover:shadow-emerald-400/10" },
-    light: { text: "text-emerald-600", bg: "bg-emerald-50", border: "border-emerald-200", glow: "hover:shadow-emerald-100" }
-  },
-  "AI / ML": { 
-    dark: { text: "text-violet-400", bg: "bg-violet-400/5", border: "border-violet-400/20", glow: "hover:shadow-violet-400/10" },
-    light: { text: "text-violet-600", bg: "bg-violet-50", border: "border-violet-200", glow: "hover:shadow-violet-100" }
-  },
 };
 
 export default function Skills() {
