@@ -28,6 +28,7 @@ export default function Hero() {
 
 const roles = [
   "Frontend Developer",
+  "Software Engineer",
   "AI Systems Developer",
   "Web Designer",
 ];
@@ -178,7 +179,7 @@ function TypewriterText({ texts }) {
           transition={{ duration: 0.6, delay: 0.9 }}
           className="font-body text-white/40 text-base sm:text-lg max-w-lg mx-auto mb-12 leading-relaxed"
         >
-          Building intelligent systems and user-friendly web platforms.
+          Building Intelligent Systems and user-friendly Web & Desktop platforms.
         </motion.p>
 
         {/* CTAs */}
